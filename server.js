@@ -1,11 +1,21 @@
 var express = require('express'),
 	wine = require('./routes/wines');
 
+var mongoose = require('mongoose'),
+	Admin = require('./models/admin');
+
+var connStr = 'mongodb://localhost:27017/rift';
+mongoose.connect(connStr, function(err) {
+	if (err) throw err;
+	console.log('Successfully connected to Mongo');
+});
+
+
 var app = express();
 
 app.configure(function () {
-	    app.use(express.logger('dev'));     /* 'default', 'short', 'tiny', 'dev' */
-		    app.use(express.bodyParser());
+    app.use(express.logger('dev'));     /* 'default', 'short', 'tiny', 'dev' */
+    app.use(express.bodyParser());
 });
  
 app.get('/wines', wine.findAll);

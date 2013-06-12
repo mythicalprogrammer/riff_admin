@@ -1,6 +1,6 @@
 {
   "name": "admin_rift",
-  "description": "Administrative tool for Rift",
+  "description": "Administrative tool for BaubleBox",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

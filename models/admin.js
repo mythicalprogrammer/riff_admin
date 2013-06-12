@@ -5,7 +5,6 @@ var mongoose = require('mongoose'),
 	SALT_WORK_FACTOR = 10;
 
 var AdminSchema = new Schema({
-	_id: Schema.Types.ObjectId,
 	name: { type: String, required: true},
 	email: { type: String, required: true, index: { unique: true } },
 	password: { type: String, required: true }
