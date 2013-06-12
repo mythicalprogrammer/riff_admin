@@ -2,7 +2,7 @@ var express = require('express'),
 	wine = require('./routes/wines');
 
 var mongoose = require('mongoose'),
-	Admin = require('./models/admin');
+	Admin = require('./models/admin-model');
 
 // run all the db
 require('./libs/db/allDB').runAllDB();
