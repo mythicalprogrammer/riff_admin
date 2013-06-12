@@ -10,6 +10,10 @@ mongoose.connect(connStr, function(err) {
 	console.log('Successfully connected to Mongo');
 });
 
+Admin.findOne({ email:'Anthony@rift.info' }, 
+	function(err, admin) {
+		console.log(admin);
+});
 
 var app = express();
 
