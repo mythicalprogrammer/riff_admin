@@ -1,8 +1,13 @@
+//http://blog.modulus.io/nodejs-and-express-sessions
+//https://gist.github.com/srohde/2416476
+//http://stackoverflow.com/questions/15627358/node-js-express-using-passport-with-redis-getting-session-unauthorized
 var express = require('express'),
 	wine = require('./routes/wines');
 
 var mongoose = require('mongoose'),
 	Admin = require('./models/admin-model');
+
+var redis = require("redis");
 
 // run all the db
 require('./libs/db/allDB').runAllDB();
@@ -89,11 +94,12 @@ console.log(admin);
 });
  */
 var app = express();
+var RedisStore = require('connect-redis')(express);
 
 app.configure(function () {
 	app.use(express.logger('dev'));     // 'default', 'short', 'tiny', 'dev' 
+	app.use(express.cookieParser());
 	//app.use(app.router);
-	//app.get('/login', auth.login);
 	app.use(passport.initialize());
 	app.use(express.bodyParser());
 });
